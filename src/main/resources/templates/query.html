@@ -1,0 +1,49 @@
+<!--
+User: deyong_tong
+Date: 2019/3/26
+Time: 11:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="./css/add.css" rel="stylesheet">
+    <link href="./css/query.css" rel="stylesheet">
+</head>
+<body style="font-size: 18px">
+<fieldset id="fielsetId">
+    <legend>查询数据</legend>
+    <div id="content-head-div" style="text-align: right">
+        <a href="index" style="font-size: medium">返回首页</a><br>
+        <a href="add" style="font-size: medium">添加数据地址</a>
+    </div>
+    <div style="margin-top: 20px">
+        <form action="query" method="get">
+            <table>
+                <tr>
+                    <td>关键字：</td>
+                    <td><input name=""></td>
+                    <td>
+                        <button id="add-class-button">搜索</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div>
+        <p>查询结果：</p>
+        <table border="1px" cellpadding="0" cellspacing="0" id="result-table">
+            <tr>
+                <td>序号</td>
+                <td>分类</td>
+                <td>大标题</td>
+                <td>小标题</td>
+                <td>详细内容</td>
+            </tr>
+
+        </table>
+    </div>
+</fieldset>
+</body>
+</html>
