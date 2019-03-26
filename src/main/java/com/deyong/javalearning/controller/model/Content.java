@@ -3,7 +3,7 @@ package com.deyong.javalearning.controller.model;
 import lombok.Data;
 
 /**
- * .正文类
+ * .正文信息
  *
  * @author deyong_tong 童德勇
  * @version V1.0
@@ -18,8 +18,10 @@ public class Content {
 
     private String parentTitle;
 
-    private String Subheading;
+    private String subheading;
 
     private String description;
+
+    private String lastModify;
 
 }
