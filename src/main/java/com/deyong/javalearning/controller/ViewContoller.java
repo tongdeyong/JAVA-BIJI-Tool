@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewContoller {
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String getHomePage() {
         return "index";
     }

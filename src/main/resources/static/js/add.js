@@ -1,6 +1,8 @@
 define(function (require, exports, module) {
 
     var $ = require('jquery');
+
+    /*获取参数*/
     var getParam = function () {
         return param = {
             'contentClass': $('#contentClass').val(),
@@ -10,17 +12,24 @@ define(function (require, exports, module) {
         };
     };
 
-    var getData = function () {
+    /**
+     * 清空输入框
+     */
+    var cleanData = function () {
+        $('#subheading').val('');
+        $('#description').val('');
+    };
 
-        console.log(getParam());
+    /*发起请求*/
+    var getData = function () {
         $.ajax({
-            //url: '${pageContext.request.contextPath}/content/add',
-            url: 'http://localhost:9999/content/add',
+            url: './content/add',
             type: 'post',
             data: getParam(),
             dataType: 'json',
             success: function (data) {
-                alert("添加成功！")
+                alert("添加成功！");
+                cleanData();
             },
             error: function (data) {
                 alert("添加失败！")

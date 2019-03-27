@@ -20,7 +20,6 @@ public class contentController {
 
     @Autowired
     private IcontentService contentService;
-
     /**
      * 添加信息
      *
