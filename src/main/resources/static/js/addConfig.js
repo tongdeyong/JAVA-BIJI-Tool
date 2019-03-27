@@ -1,7 +1,8 @@
 seajs.config({
 
     alias: {
-        'add': './js/add.js',
-        'jquery': '../sea-module/jquery/jquery.js'
+        'add': './js/add.js'
     }
 });
+
+
