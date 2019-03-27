@@ -2,23 +2,23 @@ package com.deyong.javalearning.controller;
 
 import com.deyong.javalearning.controller.model.Content;
 import com.deyong.javalearning.service.IContentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * .正文控制
  *
- * @author deyong_tong 童德勇
+ * @author deyong_tong 童德勇 2019/3/25 23:39
  * @version V1.0
- * @date 2019/3/25 23:39
  */
 @RestController
 @RequestMapping("/content")
 public class ContentController {
 
-    @Autowired
+    @Resource
     private IContentService contentService;
     /**
      * 添加信息

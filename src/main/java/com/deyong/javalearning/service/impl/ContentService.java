@@ -3,9 +3,9 @@ package com.deyong.javalearning.service.impl;
 import com.deyong.javalearning.controller.model.Content;
 import com.deyong.javalearning.dao.IContentMapper;
 import com.deyong.javalearning.service.IContentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,17 +16,18 @@ import java.util.Date;
  * @version 1.0
  * @since 1.0
  */
-@Service
+@Service("contentService")
 public class ContentService implements IContentService {
 
-    @Autowired
+    @Resource
     private IContentMapper contentMapper;
 
     @Override
     public void add(Content content) {
         Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String lastModify = simpleDateFormat.format(date);
+        System.out.println(lastModify);
         content.setLastModify(lastModify);
         contentMapper.add(content);
     }
