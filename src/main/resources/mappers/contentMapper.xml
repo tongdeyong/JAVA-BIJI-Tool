@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.deyong.javalearning.dao.IcontentMapper">
+<mapper namespace="com.deyong.javalearning.dao.IContentMapper">
     <insert id="add" parameterType="com.deyong.javalearning.controller.model.Content">
         INSERT INTO java_data
         values (null, #{contentClass}, #{parentTitle},#{subheading},#{description},#{lastModify})

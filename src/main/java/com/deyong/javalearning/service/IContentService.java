@@ -9,7 +9,7 @@ import com.deyong.javalearning.controller.model.Content;
  * @version 1.0
  * @since 1.0
  */
-public interface IcontentService {
+public interface IContentService {
 
     /**
      * 添加信息方法

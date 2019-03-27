@@ -1,14 +1,14 @@
 package com.deyong.javalearning.controller;
 
 import com.deyong.javalearning.controller.model.Content;
-import com.deyong.javalearning.service.IcontentService;
+import com.deyong.javalearning.service.IContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * .
+ * .正文控制
  *
  * @author deyong_tong 童德勇
  * @version V1.0
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/content")
-public class contentController {
+public class ContentController {
 
     @Autowired
-    private IcontentService contentService;
+    private IContentService contentService;
     /**
      * 添加信息
      *
@@ -28,7 +28,6 @@ public class contentController {
      */
     @PostMapping("/add")
     public Object add(Content content) {
-        System.out.println(content.toString());
         contentService.add(content);
         return true;
     }
