@@ -57,6 +57,7 @@ td:first-child {
     width: 75px;
     height: 30px;
     border-radius: 5px;
+    border: solid 1px;
 }
 
 #add-buttons {
@@ -64,4 +65,6 @@ td:first-child {
     height: 40px;
     border-radius: 5px;
     font-size: 18px;
+    border: solid 1px;
+    margin: 0 auto;
 }

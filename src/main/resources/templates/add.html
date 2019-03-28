@@ -9,6 +9,12 @@ Time: 11:00
     <meta charset="UTF-8">
     <title>添加数据</title>
     <link href="./css/add.css" rel="stylesheet">
+    <link href="./css/prom_box.css">
+    <script src="./js/dist/sea.js" type="text/javascript"></script>
+    <script src="./js/addConfig.js" type="text/javascript"></script>
+    <script src="./js/dist/handlebars-v4.1.1.js" type="text/javascript"></script>
+    <script src="./js/dist/jquery.js" type="text/javascript"></script>
+    <script src="./js/moban.js" type="text/javascript"></script>
 </head>
 <body style="font-size: 18px">
 <fieldset id="fielsetId">
@@ -30,7 +36,7 @@ Time: 11:00
                         </select>
                     </td>
                     <td width="75px">
-                        <button id="add-class-button">添加分类</button>
+                        <div id="add-class-button">添加分类</div>
                     </td>
                 </tr>
                 <tr>
@@ -54,22 +60,39 @@ Time: 11:00
                 <tr>
                     <td></td>
                     <td style="text-align: center">
-                        <button id="add-buttons" type="submit">提交</button>
+                        <div id="add-buttons">提交</div>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
 </fieldset>
-<script src="./js/sea.js" type="text/javascript"></script>
-<script src="./js/addConfig.js" type="text/javascript"></script>
-<script src="./js/jquery.js" type="text/javascript"></script>
+
+
+<!--弹窗模板-->
+<script id="box_template" type="text/x-handlebars-template">
+    <div id="popLayer"></div>
+    <div id="popBox">
+        <div class="close">
+            <a href="#" onclick="closeBox()">X</a>
+        </div>
+        <div id="popBox_content">添加成功！</div>
+        <div id="button_div">
+            <button id="confirm">确认</button>
+            <button id="cancle">取消</button>
+        </div>
+    </div>
+</script>
 <script>
     seajs.use(['add'], function (add) {
         $('#add-buttons').on('click', function () {
             add.add();
         })
     });
+
+
 </script>
+
+
 </body>
 </html>

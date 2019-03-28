@@ -1,8 +1,11 @@
 define(function (require, exports, module) {
 
     var $ = require('jquery');
-
-    /*获取参数*/
+    var ajaxUtil = require('ajaxUtil');
+    var promptBox = require('promptBox');
+    var handlebarsUtil = require('handlebarsUtil');
+    //var Handlebars = require('./dist/handlebars-v4.1.1.js');
+    /**获取参数*/
     var getParam = function () {
         return param = {
             'contentClass': $('#contentClass').val(),
@@ -20,24 +23,29 @@ define(function (require, exports, module) {
         $('#description').val('');
     };
 
-    /*发起请求*/
-    var getData = function () {
-        $.ajax({
-            url: './content/add',
-            type: 'post',
-            data: getParam(),
-            dataType: 'json',
-            success: function (data) {
-                alert("添加成功！");
-                cleanData();
-            },
-            error: function (data) {
-                alert("添加失败！")
-            }
-        });
+    /**提交添加的信息*/
+    var submitData = function () {
+        var url = './content/add';
+        var data = getParam();
+        ajaxUtil.ajaxPost(url, data, function (data) {
+
+            cleanData();
+        }, function (data) {
+            alert("添加失败！")
+        })
     };
 
+
+
+    /*点击关闭按钮*/
+    function closeBox() {
+        var popBox = document.getElementById("popBox");
+        var popLayer = document.getElementById("popLayer");
+        popBox.style.display = "none";
+        popLayer.style.display = "none";
+    }
+
     exports.add = function () {
-        getData();
+        submitData();
     }
 });
