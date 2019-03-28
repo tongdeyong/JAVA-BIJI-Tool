@@ -1,5 +1,6 @@
 /*背景层*/
-.popLayer {
+.classpopLayer {
+    display: none;
     background-color: #B3B3B3;
     position: absolute;
     top: 0;
@@ -13,7 +14,8 @@
 }
 
 /*弹出层*/
-.popBox {
+.classpopBox {
+    display: none;
     background-color: #FFFFFF;
     z-index: 11;
     width: 400px;
@@ -27,7 +29,7 @@
     border-radius: 3px;
 }
 
-.popBox .close {
+.classpopBox .classclose {
     text-align: right;
     padding-right: 10px;
     background-color: #f0f0f0;
@@ -37,25 +39,39 @@
     border-top-left-radius: 3px;
 }
 
-/*关闭按钮*/
-.popBox .close a {
-    text-decoration: none;
+/*标题*/
+.classpopBox .classclose p {
     color: #2D2C3B;
+    margin: 0 38% 0 0;
+    display: inline-block;
 }
 
-.popBox_content {
+.classpopBox_content {
     text-align: center;
-    margin: 50px auto;
+    margin: 28px auto;
     font-size: larger;
 }
+.classpopBox_content p{
+    margin: 0 0 8px 0;
+    line-height: 16px;
+    font-size: 14px;
+    padding-left: 96px;
+    text-align: left;
+    height: 16px;
+}
 
-.button_div {
+.classbutton_div {
     text-align: center;
 }
 
-.button_div button{
+.classbutton_div button{
     margin: 0 20px;
     width: 30%;
     font-size: 18px;
     border-radius: 3px;
+}
+
+#addClass{
+    width: 50%;
+    height: 25px;
 }

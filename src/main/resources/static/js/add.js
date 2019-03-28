@@ -1,10 +1,8 @@
 define(function (require, exports, module) {
 
-    var $ = require('jquery');
-    var ajaxUtil = require('ajaxUtil');
-    var promptBox = require('promptBox');
-    var handlebarsUtil = require('handlebarsUtil');
-    //var Handlebars = require('./dist/handlebars-v4.1.1.js');
+    var AjaxUtil = require('ajaxUtil');
+    var AddClassBox = require('AddClassBox');
+
     /**获取参数*/
     var getParam = function () {
         return param = {
@@ -27,23 +25,17 @@ define(function (require, exports, module) {
     var submitData = function () {
         var url = './content/add';
         var data = getParam();
-        ajaxUtil.ajaxPost(url, data, function (data) {
-
+        AjaxUtil.ajaxPost(url, data, function (data) {
+            alert('添加成功！');
             cleanData();
-        }, function (data) {
+        }, function () {
             alert("添加失败！")
         })
     };
 
-
-
-    /*点击关闭按钮*/
-    function closeBox() {
-        var popBox = document.getElementById("popBox");
-        var popLayer = document.getElementById("popLayer");
-        popBox.style.display = "none";
-        popLayer.style.display = "none";
-    }
+    $(function () {
+        AddClassBox.getAddClassBox();
+    });
 
     exports.add = function () {
         submitData();
