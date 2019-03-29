@@ -7,10 +7,11 @@ define(function (require, exports, module) {
             type: 'post',
             data: data,
             dataType: 'json',
-            success: function (data) {
-                success(data);
+            success: function (backData) {
+                success(backData);
             },
             error: function () {
+                error();
             }
         })
     };
@@ -20,10 +21,11 @@ define(function (require, exports, module) {
             type: 'get',
             data: data,
             dataType: 'json',
-            success: function (data) {
-                success(data);
+            success: function (backData) {
+                success(backData);
             },
             error: function () {
+                error();
             }
         })
     };

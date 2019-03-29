@@ -7,4 +7,22 @@
         INSERT INTO java_data
         values (null, #{contentClass}, #{parentTitle},#{subheading},#{description},#{lastModify})
     </insert>
+
+    <select id="selectAll" resultType="com.deyong.javalearning.controller.model.Content">
+        SELECT * FROM java_data
+    </select>
+
+    <delete id="deleteOne">
+        DELETE FROM java_data WHERE id = #{id}
+    </delete>
+
+    <select id="selectClass" resultType="String">
+        SELECT DISTINCT contentClass FROM java_data
+    </select>
+
+    <select id="selectByWord" resultType="com.deyong.javalearning.controller.model.Content"
+    parameterType="String">
+        SELECT * FROM java_data WHERE subheading LIKE "%"#{word}"%"
+    </select>
+
 </mapper>

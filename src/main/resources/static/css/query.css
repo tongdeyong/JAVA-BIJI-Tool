@@ -2,7 +2,28 @@
     margin: 0 10px;
 }
 
-#result-table td {
+.table td {
     text-align: center;
     height: 30px;
 }
+
+.table {
+    border-width: 0;
+    border-style: solid;
+    border-collapse: collapse;
+
+}
+
+#result-div p{
+    padding-left: 5%;
+    margin-bottom: 5px;
+}
+
+#query-button{
+    width: 75px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px;
+}
+
+

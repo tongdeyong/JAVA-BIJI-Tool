@@ -2,6 +2,8 @@ package com.deyong.javalearning.dao;
 
 import com.deyong.javalearning.controller.model.Content;
 
+import java.util.List;
+
 /**
  * 持久层
  *
@@ -11,5 +13,32 @@ import com.deyong.javalearning.controller.model.Content;
  */
 public interface IContentMapper {
 
+    /**
+     * 添加一条信息
+     *
+     * @param contet 一条信息内容
+     */
     void add(Content contet);
+
+    /**
+     * 查询所有数据
+     *
+     * @return 信息集合
+     */
+    List<Content> selectAll();
+
+    /**
+     * 根据id删除一条信息
+     *
+     * @param id
+     */
+    void deleteOne(Integer id);
+
+    /**
+     * 查询不重复的分类类别
+     *
+     * @return 分类类别集合
+     */
+    List<String> selectClass();
+
 }

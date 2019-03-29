@@ -1,7 +1,7 @@
 /*添加分类的弹窗*/
 define(function (require, exports, module) {
 
-    var AjaxUtil = require('./ajaxUtil.js');
+    var AjaxUtil = require('./AjaxUtil.js');
 
     /*显示分类选项弹框*/
     var showAddClassBox = function () {

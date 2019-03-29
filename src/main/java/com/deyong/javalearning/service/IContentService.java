@@ -2,6 +2,8 @@ package com.deyong.javalearning.service;
 
 import com.deyong.javalearning.controller.model.Content;
 
+import java.util.List;
+
 /**
  * 正文服务类
  *
@@ -15,5 +17,26 @@ public interface IContentService {
      * 添加信息方法
      */
     void add(Content content);
+
+    /**
+     * 查询所有信息
+     *
+     * @return 所有信息集合
+     */
+    List<Content> selectAll();
+
+    /**
+     * 根据id删除一条信息
+     *
+     * @param id id
+     */
+    void deleteOne(Integer id);
+
+    /**
+     * 查询分类类别
+     *
+     * @return 分类集合
+     */
+    List<String> selectClass();
 
 }
