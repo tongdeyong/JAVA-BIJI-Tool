@@ -1,7 +1,7 @@
 define(function (require, exports, module) {
 
-    var AjaxUtil = require('ajaxUtil');
-    var AddClassBox = require('AddClassBox');
+    var AjaxUtil = require('./util/AjaxUtil.js');
+    var AddClassBox = require('./util/AddClassBox.js');
 
     /**获取参数*/
     var getParam = function () {

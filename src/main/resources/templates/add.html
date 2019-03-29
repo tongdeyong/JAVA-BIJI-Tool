@@ -8,12 +8,11 @@ Time: 11:00
 <head>
     <meta charset="UTF-8">
     <title>添加数据</title>
-    <link href="../static/css/add.css" rel="stylesheet">
-    <link href="../static/css/add_class_box.css" rel="stylesheet">
-    <script src="../static/js/dist/sea.js" type="text/javascript"></script>
-    <script src="../static/js/addConfig.js" type="text/javascript"></script>
-    <script src="../static/js/dist/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="../static/js/dist/handlebars-v4.1.0.js" type="text/javascript"></script>
+    <link href="./css/add.css" rel="stylesheet">
+    <link href="./css/add_class_box.css" rel="stylesheet">
+    <script src="./js/dist/sea.js" type="text/javascript"></script>
+    <script src="./js/dist/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="./js/dist/handlebars-v4.1.0.js" type="text/javascript"></script>
 
 </head>
 <body style="font-size: 18px">
@@ -36,7 +35,7 @@ Time: 11:00
                         </select>
                     </td>
                     <td width="75px">
-                        <div id="add-class-button">添加分类</div>
+                        <button id="add-class-button">添加分类</button>
                     </td>
                 </tr>
                 <tr>
@@ -60,7 +59,7 @@ Time: 11:00
                 <tr>
                     <td></td>
                     <td style="text-align: center">
-                        <div id="add-buttons">提交</div>
+                        <button id="add-buttons">提交</button>
                     </td>
                 </tr>
             </table>
@@ -83,7 +82,7 @@ Time: 11:00
 </div>
 
 <script>
-    seajs.use(['add'], function (add) {
+    seajs.use(['./js/add.js'], function (add) {
         $('#add-buttons').on('click', function () {
             add.add();
         })

@@ -1,8 +1,9 @@
 /*添加分类的弹窗*/
 define(function (require, exports, module) {
 
-    var AjaxUtil = require('ajaxUtil');
+    var AjaxUtil = require('./ajaxUtil.js');
 
+    /*显示分类选项弹框*/
     var showAddClassBox = function () {
         $('#add-class-button').click(function () {
             $('.classpopBox').show();
@@ -10,24 +11,25 @@ define(function (require, exports, module) {
         })
     };
 
+    /*关闭添加分类弹框*/
     var hideAddClassBox = function () {
         $('#cancle,.classpopBox .classclose a').on('click', function () {
             $('.classpopBox').hide();
             $('.classpopLayer').hide();
             $('#addClass').val('');
+            $('#addResult').text('');
         });
     };
 
+    /*添加分类选项*/
     var addClass = function () {
         $('#confirm').click(function () {
             var param = $('#addClass').val();
-            var url = './content/addClass';
-            AjaxUtil.ajaxGet(url, param, function () {
-                $('#addResult').val('添加成功！')
-            }, function () {
-                $('#addResult').val('添加失败！');
-                $('#addResult').attr({'font-color': 'red'});
-            })
+            $('#contentClass').append(
+                '<option selected>' + param + '</option>'
+            )
+            $('#addResult').text('添加成功！')
+            $('#addClass').val('');
         });
     };
 
