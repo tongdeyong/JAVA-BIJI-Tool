@@ -28,13 +28,10 @@ public class ContentService implements IContentService {
 
     @Override
     public void add(Content content) {
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String lastModify = simpleDateFormat.format(date);
-        System.out.println(lastModify);
-        content.setLastModify(lastModify);
+        content.setLastModify(getLastModifyTime());
         contentMapper.add(content);
     }
+
 
     @Override
     public List<Content> selectAll() {
@@ -71,5 +68,22 @@ public class ContentService implements IContentService {
         List<Content> contents = contentMapper.selectByWord(content);
         contents.forEach(backData -> backData.setLastModify(getDateStr(backData.getLastModify())));
         return contents;
+    }
+
+    @Override
+    public void update(Content content) {
+        content.setLastModify(getLastModifyTime());
+        contentMapper.update(content);
+    }
+
+    /**
+     * 获取最后修改时间
+     *
+     * @return 时间字符串 yyyy-MM-dd HH:mm:ss
+     */
+    private String getLastModifyTime() {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return simpleDateFormat.format(date);
     }
 }

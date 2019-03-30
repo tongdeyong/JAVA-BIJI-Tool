@@ -48,4 +48,11 @@ public interface IContentMapper {
      * @return 结果
      */
     List<Content> selectByWord(Content content);
+
+    /**
+     * 更新信息
+     *
+     * @param content 信息
+     */
+    void update(Content content);
 }

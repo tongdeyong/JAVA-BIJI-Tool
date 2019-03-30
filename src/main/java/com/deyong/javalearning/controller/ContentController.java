@@ -84,4 +84,17 @@ public class ContentController {
     public List<Content> selectByWord(Content content) {
         return contentService.selectByWord(content);
     }
+
+    /**
+     * 更新信息
+     *
+     * @param content 信息
+     * @return 是否更新成功
+     */
+    @PostMapping("/update")
+    public Object update(Content content) {
+        contentService.update(content);
+        return true;
+    }
+
 }

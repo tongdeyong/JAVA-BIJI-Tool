@@ -1,16 +1,22 @@
 define(function (require, exports, module) {
 
     var AjaxUtil = require('./util/AjaxUtil.js');
-    var Add = require('./add.js');
+    require('./util/jquery.base64.js');
+    var $ = jQuery;
     var HandlebarsUtil = require('./util/HandlebarsUtil.js');
+    var Add = require('./add.js');
 
     /**重构查询的数据，主要对详情内容进行截取*/
     var constructData = function (data) {
-        if (data){
+        if (data) {
             data.forEach(function (item) {
+                console.log(JSON.stringify(item));
+                item.base64Data = $.base64.encode(JSON.stringify(item), 'utf8');
+                console.log(item.base64Data);
                 var detailData = item.description;
+                debugger;
                 if (detailData && detailData.length > 20) {
-                    item.description = detailData.substring(0,20)+'...';
+                    item.description = detailData.substring(0, 20) + '...';
                 }
             })
         }
@@ -81,11 +87,37 @@ define(function (require, exports, module) {
 
     };
 
+
+    /*查看详情*/
+    var showDetail = function () {
+        $(document).on('click', 'button[name="detail"]', function () {
+            var getDetailData = $(this).attr('detail');
+            if (getDetailData) {
+                var url = encodeURI('detail?data=' + getDetailData);
+                //调出详情页面
+                window.open(url);
+            } else {
+                alert('系统出错！')
+            }
+        })
+
+    };
+
+    /*编辑信息，先显示详情，再将状态变为可编辑*/
+    var editDetailData = function () {
+        $(document).on('click', 'button[name="modify"]', function () {
+            $(this).prev().trigger('click');
+            Add.editData();
+        });
+
+    };
+
     var queryFun = function () {
-        //Add.queryChoose();
         queryAllData();
         deleteOne();
         queryData();
+        showDetail();
+        editDetailData()
     };
 
     return {

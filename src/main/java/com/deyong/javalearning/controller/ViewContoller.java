@@ -28,4 +28,9 @@ public class ViewContoller {
         return "query";
     }
 
+    @RequestMapping("/detail")
+    public String getDetailPage() {
+        return "detail";
+    }
+
 }

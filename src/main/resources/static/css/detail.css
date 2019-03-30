@@ -1,0 +1,77 @@
+#content-head-div {
+    text-align: left;
+}
+
+#content-head-div div{
+    margin-left: 75%;
+    display: inline-block;
+}
+
+#content-div {
+    margin: 30px auto;
+}
+
+select {
+    width: 98%;
+    height: 30px;
+    margin: 5px auto;
+    padding: 0 0 0 10px;
+}
+
+input {
+    width: 96%;
+    height: 30px;
+    margin: 5px auto;
+    padding: 0 10px;
+}
+
+textarea {
+    width: 96%;
+    height: 230px;
+    margin: 5px auto;
+    padding: 5px 10px;
+}
+
+table {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
+}
+
+td {
+    text-align: left;
+}
+
+td:first-child {
+    text-align: right;
+    width: 100px;
+}
+
+#add-class-button {
+    width: 75px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px;
+}
+
+#add-buttons {
+    width: 165px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: solid 1px;
+    margin: 0 auto;
+}
+
+H2 {
+    margin-left: 2%;
+    display: inline-block;
+}
+
+.-button {
+    width: 75px;
+    height: 22px;
+    border-radius: 5px;
+    border: solid 1px;
+    margin-left: 10px;
+}

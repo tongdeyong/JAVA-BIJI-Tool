@@ -32,17 +32,27 @@
             parameterType="com.deyong.javalearning.controller.model.Content">
         SELECT * FROM java_data
         <where>
-        <if test="subheading!=null and subheading !=''">
-            subheading LIKE '%${subheading}%'
-        </if>
-        <if test="parentTitle != null and parentTitle != ''">
-            AND parentTitle LIKE '%${parentTitle}%'
-        </if>
-        <if test="contentClass != null and contentClass != ''">
-            AND contentClass LIKE '%${contentClass}%'
-        </if>
+            <if test="subheading!=null and subheading !=''">
+                subheading LIKE '%${subheading}%'
+            </if>
+            <if test="parentTitle != null and parentTitle != ''">
+                AND parentTitle LIKE '%${parentTitle}%'
+            </if>
+            <if test="contentClass != null and contentClass != ''">
+                AND contentClass LIKE '%${contentClass}%'
+            </if>
         </where>
         ORDER BY id
     </select>
+
+    <update id="update" parameterType="com.deyong.javalearning.controller.model.Content">
+        UPDATE java_data SET
+        contentClass = #{contentClass},
+        parentTitle = #{parentTitle},
+        subheading = #{subheading},
+        description = #{description},
+        lastModify = #{lastModify}
+        where id = #{id}
+    </update>
 
 </mapper>

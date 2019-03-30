@@ -18,7 +18,7 @@ Time: 11:00
 <body style="font-size: 12px">
 
 <div id="content-head-div">
-    <H2>添加数据</H2>
+    <H2>查看详情信息</H2>
     <div>
         <button class="-button" onclick="goQuery()">查询</button>
         <button class="-button" onclick="goIndex()">返回</button>
@@ -59,12 +59,14 @@ Time: 11:00
             <tr>
                 <td></td>
                 <td style="text-align: center">
-                    <button id="add-buttons">提交</button>
+                    <button id="add-buttons">编辑</button>
                 </td>
             </tr>
         </table>
     </div>
 </div>
+<!--放id值得-->
+<input style="display: none" id="idValue">
 <!--添加分类弹框-->
 <div class="classpopLayer"></div>
 <div class="classpopBox">
@@ -87,15 +89,18 @@ Time: 11:00
     {{/each}}
 </script>
 <script>
-    seajs.use(['./js/add.js'], function (add) {
+
+    seajs.use(['./js/detail.js','./js/add.js'], function (Detail,Add) {
         $('#add-buttons').on('click', function () {
                 var type = $('#add-buttons').text();
                 if (type === '编辑'){
-                    add.editData();
+                    Detail.editData();
                 } else {
-                    add.addData('./content/add','add');
+                    Add.addData('./content/update','update');
                 }
-        })
+        });
+
+        Detail.dataToShow();
     });
 
     function goQuery() {
