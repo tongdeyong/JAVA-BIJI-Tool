@@ -1,20 +1,14 @@
 #content-head-div {
-    text-align: right;
-    border-bottom: solid 1px blue;
+    text-align: left;
+}
+
+#content-head-div div{
+    margin-left: 75%;
+    display: inline-block;
 }
 
 #content-div {
     margin: 30px auto;
-}
-
-#fielsetId {
-    border: solid 2px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-legend {
-    font-size: 30px;
 }
 
 select {
@@ -67,4 +61,17 @@ td:first-child {
     font-size: 18px;
     border: solid 1px;
     margin: 0 auto;
+}
+
+H2 {
+    margin-left: 2%;
+    display: inline-block;
+}
+
+.-button {
+    width: 75px;
+    height: 22px;
+    border-radius: 5px;
+    border: solid 1px;
+    margin-left: 10px;
 }

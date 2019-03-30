@@ -39,4 +39,13 @@ public interface IContentService {
      */
     List<String> selectClass();
 
+    /**
+     * 模糊查询
+     *
+     * @param content 字段
+     * @return 结果
+     */
+    List<Content> selectByWord(Content content);
+
+
 }

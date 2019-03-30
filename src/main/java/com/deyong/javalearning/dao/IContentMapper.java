@@ -30,7 +30,7 @@ public interface IContentMapper {
     /**
      * 根据id删除一条信息
      *
-     * @param id
+     * @param id id
      */
     void deleteOne(Integer id);
 
@@ -41,4 +41,11 @@ public interface IContentMapper {
      */
     List<String> selectClass();
 
+    /**
+     * 模糊查询
+     *
+     * @param content 字段
+     * @return 结果
+     */
+    List<Content> selectByWord(Content content);
 }

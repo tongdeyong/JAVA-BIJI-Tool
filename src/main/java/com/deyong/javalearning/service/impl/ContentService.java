@@ -46,8 +46,8 @@ public class ContentService implements IContentService {
     /**
      * 将yyyy-MM-dd HH:mm:ss转成yyyy-MM-dd
      *
-     * @param dateStr
-     * @return
+     * @param dateStr yyyy-MM-dd HH:mm:ss
+     * @return yyyy-MM-dd
      */
     private String getDateStr(String dateStr) {
         if (StringUtils.isEmpty(dateStr)) {
@@ -64,5 +64,12 @@ public class ContentService implements IContentService {
     @Override
     public List<String> selectClass() {
         return contentMapper.selectClass();
+    }
+
+    @Override
+    public List<Content> selectByWord(Content content) {
+        List<Content> contents = contentMapper.selectByWord(content);
+        contents.forEach(backData -> backData.setLastModify(getDateStr(backData.getLastModify())));
+        return contents;
     }
 }

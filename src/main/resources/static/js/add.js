@@ -43,14 +43,15 @@ define(function (require, exports, module) {
         }, function () {
             alert('分类查询异常！')
         })
-    }
+    };
 
     $(function () {
         AddClassBox.getAddClassBox();
         queryChoose();
     });
 
-    exports.add = function () {
-        submitData();
+    return {
+        submitData: submitData,
+        queryChoose: queryChoose
     }
 });
