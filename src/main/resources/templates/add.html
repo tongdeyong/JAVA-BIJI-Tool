@@ -87,23 +87,20 @@ Time: 11:00
     {{/each}}
 </script>
 <script>
-    seajs.use(['./js/add.js'], function (add) {
+    seajs.use(['./js/add.js', './util/AddClassBox.js'], function (Add, AddClassBox) {
         $('#add-buttons').on('click', function () {
-                var type = $('#add-buttons').text();
-                if (type === '编辑'){
-                    add.editData();
-                } else {
-                    add.addData('./content/add','add');
-                }
-        })
+            Add.addData('./content/add', 'add');
+        });
+        Add.queryChoose();
+        AddClassBox.getAddClassBox();
     });
 
     function goQuery() {
-        window.location.href='query';
+        window.location.href = 'query';
     }
 
     function goIndex() {
-        window.location.href='./';
+        window.location.href = './';
     }
 
 </script>

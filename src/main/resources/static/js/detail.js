@@ -48,10 +48,14 @@ define(function (require, exports, module) {
 
     var dataToShow = function () {
         var url = decodeURI(window.location.href);
-        var argIndex = url.split('?data=');
-        var detailData = argIndex[1];
-        detailData = JSON.parse($.base64.decode(detailData, 'uft8'));
-        detailToShow(detailData);
+        var argIndex = url.split('?');
+        var detailData = argIndex[1].split('=');
+        var content = JSON.parse($.base64.decode(detailData[1], 'uft8'));
+        detailToShow(content);
+        if (detailData[0] ==='edit'){
+            editData();
+        }
+
     };
 
     return {

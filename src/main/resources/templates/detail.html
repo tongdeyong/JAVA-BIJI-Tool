@@ -18,7 +18,7 @@ Time: 11:00
 <body style="font-size: 12px">
 
 <div id="content-head-div">
-    <H2>查看详情信息</H2>
+    <H2>查看详情</H2>
     <div>
         <button class="-button" onclick="goQuery()">查询</button>
         <button class="-button" onclick="goIndex()">返回</button>
@@ -90,27 +90,27 @@ Time: 11:00
 </script>
 <script>
 
-    seajs.use(['./js/detail.js','./js/add.js'], function (Detail,Add) {
+    seajs.use(['./js/detail.js', './js/add.js', './js/util/AddClassBox.js'], function (Detail, Add, AddClassBox) {
         $('#add-buttons').on('click', function () {
-                var type = $('#add-buttons').text();
-                if (type === '编辑'){
-                    Detail.editData();
-                } else {
-                    Add.addData('./content/update','update');
-                }
+            var type = $('#add-buttons').text();
+            if (type === '编辑') {
+                Detail.editData();
+            } else {
+                Add.addData('./content/update', 'update');
+            }
         });
-
+        Add.queryChoose();
         Detail.dataToShow();
+        AddClassBox.getAddClassBox();
     });
 
     function goQuery() {
-        window.location.href='query';
+        window.location.href = 'query';
     }
 
     function goIndex() {
-        window.location.href='./';
+        window.location.href = './';
     }
-
 </script>
 
 

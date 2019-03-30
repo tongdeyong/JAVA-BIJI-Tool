@@ -1,13 +1,11 @@
 define(function (require, exports, module) {
 
     var AjaxUtil = require('./util/AjaxUtil.js');
-
-    var AddClassBox = require('./util/AddClassBox.js');
     var HandlebarsUtil = require('./util/HandlebarsUtil.js');
 
     /**获取参数*/
     var getParam = function () {
-        return param = {
+        return {
             'id': $('#idValue').val(),
             'contentClass': $('#contentClass').val(),
             'parentTitle': $('#parentTitle').val(),
@@ -48,13 +46,9 @@ define(function (require, exports, module) {
         })
     };
 
-    $(function () {
-        AddClassBox.getAddClassBox();
-        queryChoose();
-    });
-
 
     return {
-        addData: addData
+        addData: addData,
+        queryChoose: queryChoose
     }
 });

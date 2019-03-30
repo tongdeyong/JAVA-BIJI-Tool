@@ -10,11 +10,8 @@ define(function (require, exports, module) {
     var constructData = function (data) {
         if (data) {
             data.forEach(function (item) {
-                console.log(JSON.stringify(item));
                 item.base64Data = $.base64.encode(JSON.stringify(item), 'utf8');
-                console.log(item.base64Data);
                 var detailData = item.description;
-                debugger;
                 if (detailData && detailData.length > 20) {
                     item.description = detailData.substring(0, 20) + '...';
                 }
@@ -93,7 +90,7 @@ define(function (require, exports, module) {
         $(document).on('click', 'button[name="detail"]', function () {
             var getDetailData = $(this).attr('detail');
             if (getDetailData) {
-                var url = encodeURI('detail?data=' + getDetailData);
+                var url = encodeURI('detail?detail=' + getDetailData);
                 //调出详情页面
                 window.open(url);
             } else {
@@ -106,13 +103,20 @@ define(function (require, exports, module) {
     /*编辑信息，先显示详情，再将状态变为可编辑*/
     var editDetailData = function () {
         $(document).on('click', 'button[name="modify"]', function () {
-            $(this).prev().trigger('click');
-            Add.editData();
+            var getDetailData = $(this).prev().attr('detail');
+            if (getDetailData) {
+                var url = encodeURI('detail?edit=' + getDetailData);
+                //调出详情页面
+                window.open(url);
+            } else {
+                alert('系统出错！')
+            }
         });
 
     };
 
     var queryFun = function () {
+        Add.queryChoose();
         queryAllData();
         deleteOne();
         queryData();
