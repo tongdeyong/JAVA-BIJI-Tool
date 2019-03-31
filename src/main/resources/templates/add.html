@@ -87,7 +87,7 @@ Time: 11:00
     {{/each}}
 </script>
 <script>
-    seajs.use(['./js/add.js', './util/AddClassBox.js'], function (Add, AddClassBox) {
+    seajs.use(['./js/add.js', './js/util/AddClassBox.js'], function (Add, AddClassBox) {
         $('#add-buttons').on('click', function () {
             Add.addData('./content/add', 'add');
         });
