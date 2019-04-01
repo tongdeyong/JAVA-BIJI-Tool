@@ -25,7 +25,7 @@ Time: 11:01
             {{#each this}}
             <tr>
                 <td>
-                    <span style="width: 40px">{{@index}}</span>
+                    <span style="width: 40px">{{addOne @index}}</span>
                 </td>
                 <td><span style="width: 100px">{{contentClass}}</span></td>
                 <td><span style="width: 150px">{{parentTitle}}</span></td>
@@ -87,7 +87,6 @@ Time: 11:01
 </body>
 <script src="./js/dist/sea.js" type="text/javascript"></script>
 <script src="./js/dist/jquery-3.3.1.min.js" type="text/javascript"></script>
-<script src="./js/dist/handlebars-v4.1.0.js" type="text/javascript"></script>
 <script>
 
     seajs.use(['./js/query.js'], function (query) {
