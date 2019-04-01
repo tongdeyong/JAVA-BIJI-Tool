@@ -92,7 +92,7 @@ define(function (require, exports, module) {
             if (getDetailData) {
                 var url = encodeURI('detail?detail=' + getDetailData);
                 //调出详情页面
-                window.open(url);
+                window.location.href = url;
             } else {
                 alert('系统出错！')
             }
@@ -106,8 +106,8 @@ define(function (require, exports, module) {
             var getDetailData = $(this).prev().attr('detail');
             if (getDetailData) {
                 var url = encodeURI('detail?edit=' + getDetailData);
-                //调出详情页面
-                window.open(url);
+                //调出编辑页面
+                window.location.href = url;
             } else {
                 alert('系统出错！')
             }
