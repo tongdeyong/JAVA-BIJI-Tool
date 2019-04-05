@@ -12,16 +12,39 @@ import lombok.Data;
 @Data
 public class Content {
 
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * 分类
+     */
     private String contentClass;
 
+    /**
+     * 父标题
+     */
     private String parentTitle;
 
+    /**
+     * 子标题
+     */
     private String subheading;
 
+    /**
+     * 详细描述
+     */
     private String description;
 
-    private String lastModify;
+    /**
+     * 修改日期
+     */
+    private String lastModifyDate;
+
+    /**
+     * 修改时间
+     */
+    private String lastModifyTime;
 
 }

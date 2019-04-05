@@ -24,14 +24,12 @@ Time: 11:01
 
             {{#each this}}
             <tr>
-                <td>
-                    <span style="width: 40px">{{addOne @index}}</span>
-                </td>
+                <td><span style="width: 40px">{{addOne @index}}</span></td>
                 <td><span style="width: 100px">{{contentClass}}</span></td>
                 <td><span style="width: 150px">{{parentTitle}}</span></td>
                 <td><span style="width: 150px">{{subheading}}</span></td>
                 <td><span style="width: 300px">{{description}}</span></td>
-                <td><span style="width: 100px">{{lastModify}}</span></td>
+                <td><span style="width: 100px">{{lastModifyDate}}</span></td>
                 <td>
                     <span style="width: 196px">
                         <button name="detail" class="c-button" detail="{{{base64Data}}}">查看</button>

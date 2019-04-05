@@ -6,7 +6,8 @@
     <!--插入一条信息-->
     <insert id="add" parameterType="com.deyong.javalearning.controller.model.Content">
         INSERT INTO java_data
-        values (null, #{contentClass}, #{parentTitle}, #{subheading}, #{description}, #{lastModify})
+        values (null, #{contentClass}, #{parentTitle}, #{subheading}, #{description},
+        null,#{lastModifyDate},#{lastModifyTime})
     </insert>
 
     <!--查询所有信息-->
@@ -51,7 +52,8 @@
         parentTitle = #{parentTitle},
         subheading = #{subheading},
         description = #{description},
-        lastModify = #{lastModify}
+        lastModifyDate = #{lastModifyDate}
+        lastModifyTime = #{lastModifyTime}
         where id = #{id}
     </update>
 

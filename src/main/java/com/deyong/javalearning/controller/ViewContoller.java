@@ -1,7 +1,7 @@
 package com.deyong.javalearning.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * 视图显示
@@ -13,24 +13,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewContoller {
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String getHomePage() {
         return "index";
     }
 
-    @RequestMapping("/add")
+    @GetMapping("/add")
     public String getAddPage() {
         return "add";
     }
 
-    @RequestMapping("/query")
+    @GetMapping("/query")
     public String getQueryPage() {
         return "query";
     }
 
-    @RequestMapping("/detail")
+    @GetMapping("/detail")
     public String getDetailPage() {
         return "detail";
     }
 
+    @GetMapping("/show")
+    public String getShowPage() {
+        return "show";
+    }
 }

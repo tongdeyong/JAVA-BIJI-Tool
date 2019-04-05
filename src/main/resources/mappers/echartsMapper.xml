@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deyong.javalearning.dao.IEchartsMapper">
+
+    <!--查询种类类别数量-->
+    <select id="queryClassQuantity" resultType="com.deyong.javalearning.service.entity.EchartsResult">
+        SELECT DISTINCT
+            java_data.contentClass as name,
+            Count(*) as num
+            FROM
+            java_data
+            GROUP BY
+            java_data.contentClass
+
+    </select>
+
+    <select id="queryModityFruquery" resultType="com.deyong.javalearning.service.entity.EchartsResult">
+      SELECT DISTINCT
+        java_data.lastModifyDate as name,
+        count(*) as num
+        FROM
+        java_data
+        GROUP BY
+        java_data.lastModifyDate
+    </select>
+
+</mapper>

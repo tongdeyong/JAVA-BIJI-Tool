@@ -7,9 +7,9 @@ package com.deyong.javalearning.excption;
  * @version 1.0
  * @since 1.0
  */
-public class MyExcption extends Exception{
+public class MyException extends Exception{
 
-    public MyExcption(String message) {
+    public MyException(String message) {
         super(message);
     }
 }

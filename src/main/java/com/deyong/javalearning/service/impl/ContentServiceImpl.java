@@ -21,14 +21,15 @@ import java.util.List;
  * @since 1.0
  */
 @Service("contentService")
-public class ContentService implements IContentService {
+public class ContentServiceImpl implements IContentService {
 
     @Resource
     private IContentMapper contentMapper;
 
     @Override
     public void add(Content content) {
-        content.setLastModify(getLastModifyTime());
+        content.setLastModifyDate(getDateStr(getLastModifyTime()));
+        content.setLastModifyTime(getTimeStr(getLastModifyTime()));
         contentMapper.add(content);
     }
 
@@ -36,8 +37,44 @@ public class ContentService implements IContentService {
     @Override
     public List<Content> selectAll() {
         List<Content> contents = contentMapper.selectAll();
-        contents.forEach(content -> content.setLastModify(getDateStr(content.getLastModify())));
+        contents.forEach(content -> content.setLastModifyDate(content.getLastModifyDate()));
         return contents;
+    }
+
+
+    @Override
+    public void deleteOne(Integer id) {
+        contentMapper.deleteOne(id);
+    }
+
+    @Override
+    public List<String> selectClass() {
+        return contentMapper.selectClass();
+    }
+
+    @Override
+    public List<Content> selectByWord(Content content) {
+        List<Content> contents = contentMapper.selectByWord(content);
+        contents.forEach(backData -> backData.setLastModifyDate(backData.getLastModifyDate()));
+        return contents;
+    }
+
+    @Override
+    public void update(Content content) {
+        content.setLastModifyDate(getDateStr(getLastModifyTime()));
+        content.setLastModifyTime(getTimeStr(getLastModifyTime()));
+        contentMapper.update(content);
+    }
+
+    /**
+     * 获取最后修改时间
+     *
+     * @return 时间字符串 yyyy-MM-dd HH:mm:ss
+     */
+    private String getLastModifyTime() {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return simpleDateFormat.format(date);
     }
 
     /**
@@ -53,37 +90,16 @@ public class ContentService implements IContentService {
         return dateStr.substring(0, 10);
     }
 
-    @Override
-    public void deleteOne(Integer id) {
-        contentMapper.deleteOne(id);
-    }
-
-    @Override
-    public List<String> selectClass() {
-        return contentMapper.selectClass();
-    }
-
-    @Override
-    public List<Content> selectByWord(Content content) {
-        List<Content> contents = contentMapper.selectByWord(content);
-        contents.forEach(backData -> backData.setLastModify(getDateStr(backData.getLastModify())));
-        return contents;
-    }
-
-    @Override
-    public void update(Content content) {
-        content.setLastModify(getLastModifyTime());
-        contentMapper.update(content);
-    }
-
     /**
-     * 获取最后修改时间
+     * 将yyyy-MM-dd HH:mm:ss转成HH:mm:ss
      *
-     * @return 时间字符串 yyyy-MM-dd HH:mm:ss
+     * @param dateStr yyyy-MM-dd HH:mm:ss
+     * @return HH:mm:ss
      */
-    private String getLastModifyTime() {
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return simpleDateFormat.format(date);
+    private String getTimeStr(String dateStr) {
+        if (StringUtils.isEmpty(dateStr)) {
+            return null;
+        }
+        return dateStr.substring(10, dateStr.length() - 1);
     }
 }

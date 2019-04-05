@@ -1,3 +1,4 @@
+
 package com.deyong.javalearning.controller;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * .正文控制
+ * 正文的增删改查操作.
  *
  * @author deyong_tong 童德勇 2019/3/25 23:39
  * @version V1.0
@@ -24,23 +25,26 @@ import javax.annotation.Resource;
 @RequestMapping("/content")
 public class ContentController {
 
+    /**
+     * 正文服务.
+     */
     @Resource
     private IContentService contentService;
 
     /**
-     * 添加信息
+     * 添加信息.
      *
      * @param content 对象
      * @return 返回信号
      */
     @PostMapping("/add")
-    public Object add(Content content) {
+    public Object add(final Content content) {
         contentService.add(content);
         return true;
     }
 
     /**
-     * 查询所有信息
+     * 查询所有信息.
      *
      * @return 所有信息集合
      */
