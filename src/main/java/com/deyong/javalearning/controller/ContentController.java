@@ -97,6 +97,7 @@ public class ContentController {
      */
     @PostMapping("/update")
     public Object update(Content content) {
+    	System.out.println(content);
         contentService.update(content);
         return true;
     }

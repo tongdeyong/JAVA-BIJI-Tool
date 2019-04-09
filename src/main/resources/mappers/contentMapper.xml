@@ -3,58 +3,66 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.deyong.javalearning.dao.IContentMapper">
-    <!--插入一条信息-->
-    <insert id="add" parameterType="com.deyong.javalearning.controller.model.Content">
-        INSERT INTO java_data
-        values (null, #{contentClass}, #{parentTitle}, #{subheading}, #{description},
-        null,#{lastModifyDate},#{lastModifyTime})
-    </insert>
+	<!--插入一条信息 -->
+	<insert id="add"
+		parameterType="com.deyong.javalearning.controller.model.Content">
+		INSERT INTO java_data
+		values (null, #{contentClass},
+		#{parentTitle}, #{subheading},
+		#{description},
+		null,#{lastModifyDate},#{lastModifyTime})
+	</insert>
 
-    <!--查询所有信息-->
-    <select id="selectAll" resultType="com.deyong.javalearning.controller.model.Content">
-        SELECT *
-        FROM java_data
-    </select>
+	<!--查询所有信息 -->
+	<select id="selectAll"
+		resultType="com.deyong.javalearning.controller.model.Content">
+		SELECT *
+		FROM java_data
+	</select>
 
-    <!--删除一条信息-->
-    <delete id="deleteOne" parameterType="Integer">
-        DELETE
-        FROM java_data
-        WHERE id = #{id}
-    </delete>
+	<!--删除一条信息 -->
+	<delete id="deleteOne" parameterType="Integer">
+		DELETE
+		FROM java_data
+		WHERE
+		id = #{id}
+	</delete>
 
-    <!--搜索分类-->
-    <select id="selectClass" resultType="String">
-        SELECT DISTINCT contentClass FROM java_data
-    </select>
+	<!--搜索分类 -->
+	<select id="selectClass" resultType="String">
+		SELECT DISTINCT contentClass
+		FROM java_data
+	</select>
 
-    <!--模糊查询字段-->
-    <select id="selectByWord" resultType="com.deyong.javalearning.controller.model.Content"
-            parameterType="com.deyong.javalearning.controller.model.Content">
-        SELECT * FROM java_data
-        <where>
-            <if test="subheading!=null and subheading !=''">
-                subheading LIKE '%${subheading}%'
-            </if>
-            <if test="parentTitle != null and parentTitle != ''">
-                AND parentTitle LIKE '%${parentTitle}%'
-            </if>
-            <if test="contentClass != null and contentClass != ''">
-                AND contentClass LIKE '%${contentClass}%'
-            </if>
-        </where>
-        ORDER BY id
-    </select>
+	<!--模糊查询字段 -->
+	<select id="selectByWord"
+		resultType="com.deyong.javalearning.controller.model.Content"
+		parameterType="com.deyong.javalearning.controller.model.Content">
+		SELECT * FROM java_data
+		<where>
+			<if test="subheading!=null and subheading !=''">
+				subheading LIKE '%${subheading}%'
+			</if>
+			<if test="parentTitle != null and parentTitle != ''">
+				AND parentTitle LIKE '%${parentTitle}%'
+			</if>
+			<if test="contentClass != null and contentClass != ''">
+				AND contentClass LIKE '%${contentClass}%'
+			</if>
+		</where>
+		ORDER BY id
+	</select>
 
-    <update id="update" parameterType="com.deyong.javalearning.controller.model.Content">
-        UPDATE java_data SET
-        contentClass = #{contentClass},
-        parentTitle = #{parentTitle},
-        subheading = #{subheading},
-        description = #{description},
-        lastModifyDate = #{lastModifyDate}
-        lastModifyTime = #{lastModifyTime}
-        where id = #{id}
-    </update>
+	<update id="update"
+		parameterType="com.deyong.javalearning.controller.model.Content">
+		UPDATE java_data SET
+		contentClass=#{contentClass},
+		parentTitle=#{parentTitle},
+		subheading=#{subheading},
+		description=#{description},
+		lastModifyDate=#{lastModifyDate},
+		lastModifyTime=#{lastModifyTime}
+		where id=#{id}
+	</update>
 
 </mapper>
