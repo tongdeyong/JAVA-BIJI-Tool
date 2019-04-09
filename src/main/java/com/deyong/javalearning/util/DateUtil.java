@@ -10,12 +10,24 @@ import java.util.Date;
  */
 public final class DateUtil {
 	
+	/** yyyy-MM-dd */
 	public static String YYYY_MM_DD = "yyyy-MM-dd";
+	/** HH:mm:ss */
 	public static String HH_MM_SS = "HH:mm:ss";
+	/** yyyy-MM-dd HH:mm:ss */
+	public static String YYYYMMDDHHMMSSSSS = "yyyyMMddHHmmssSSS";
 	/**
 	 * 有意構造
 	 */
 		private DateUtil() {}
+		
+		/**
+		 * 获取yyyyMMddHHmmss格式时间
+		 * @return yyyyMMddHHmmss 时间字符串
+		 */
+		public static String getDateTimeStr() {
+			return new SimpleDateFormat(YYYYMMDDHHMMSSSSS).format(new Date());
+		}
 		
 		/**
 		 * 获取当前时间

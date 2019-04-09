@@ -9,7 +9,12 @@ package com.deyong.javalearning.excption;
  */
 public class MyException extends Exception{
 
-    public MyException(String message) {
+    /**
+	 * 序列化
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MyException(String message) {
         super(message);
     }
 }
