@@ -1,60 +1,63 @@
 package com.deyong.javalearning.service.impl;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import com.deyong.javalearning.service.entity.FilesMsg;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.deyong.javalearning.dao.IFilesMapper;
-import com.deyong.javalearning.excption.MyException;
 import com.deyong.javalearning.service.IFileUploadService;
 import com.deyong.javalearning.util.DateUtil;
 
 /**
  * 文件上传，下载实现类
- * 
- * @author tong deyong
  *
+ * @author tong deyong
  */
 @Service("fileUploadServiceImpl")
 public class FileUploadServiceImpl implements IFileUploadService {
 
-	@Resource
-	private IFilesMapper iFilesMapper;
+    @Resource
+    private IFilesMapper filesMapper;
 
-	@Override
-	public void UploadFiles(List<MultipartFile> files) {
-		if (files == null || files.size() == 0) {
-			// 以后做抛异常和日志处理
-			try {
-				throw new MyException("无上传文件");
-			} catch (MyException e) {
-				System.out.println("没有找到上传文件！");
-			}
-			System.out.println("异常外面的");
-			return;
-		} else {
-				files.forEach(multipartFile->{
-					SaveFile(multipartFile);
-				});
-		}
+    @Override
+    public void uploadFiles(MultipartFile file, String fileName, String fileDescription) {
+        if (!file.isEmpty()) {
+            saveFile(file, fileName, fileDescription);
+        }
+        System.out.println("文件保存！");
+    }
 
-	}
+    /*文件保存*/
+    private void saveFile(MultipartFile multipartFile, String fileName, String fileDescription) {
 
-	private void SaveFile(MultipartFile multipartFile) {
-		String fileName = multipartFile.getOriginalFilename();
-		System.out.println(fileName);
-		String fileNewName = DateUtil.getDateTimeStr()+fileName.substring(fileName.indexOf("."));
-		
-	}
+        String path = System.getProperty("user.dir") + "\\files\\" + getNewName(multipartFile);
+        try {
+            multipartFile.transferTo(new File(path));
+            filesMapper.insertFileMsg(new FilesMsg(fileName, fileDescription, path, multipartFile.getSize()));
+        } catch (IOException e) {
+            System.out.println("跑一个异常");
+        }
+    }
 
-	@Override
-	public String DownloadFiles() {
-		return null;
-	}
+    @Override
+    public String downloadFiles() {
+        return null;
+    }
+
+    /**
+     * 创建文件的新名称
+     *
+     * @param file 文件名
+     * @return 新文件名 时间戳+类型后缀
+     */
+    private String getNewName(MultipartFile file) {
+        String originalFilename = file.getOriginalFilename();
+        return DateUtil.getDateTimeStr() + originalFilename.substring(originalFilename.indexOf("."));
+    }
 
 }

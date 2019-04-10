@@ -1,7 +1,5 @@
 package com.deyong.javalearning.service;
 
-import java.util.List;
-
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -14,12 +12,14 @@ public interface IFileUploadService {
 	/**
 	 * 上传文件
 	 * @param files 文件
+	 * @param fileName 文件名
+	 * @param fileDescription 文件描述
 	 */
-	void UploadFiles(List<MultipartFile> files);
+	void uploadFiles(MultipartFile files, String fileName, String fileDescription);
 	
 	/**
 	 * 下载文件
 	 * @return 下载
 	 */
-	String DownloadFiles();
+	String downloadFiles();
 }

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.deyong.javalearning.dao.IFilesMapper">
-	<insert id="insertFileMsg" parameterType="FilesMsg">
+	<insert id="insertFileMsg" parameterType="com.deyong.javalearning.service.entity.FilesMsg">
 		insert into file_data
 		values (null,#{fileName},#{fileDescription},#{filePath},#{fileSize});
 	</insert>

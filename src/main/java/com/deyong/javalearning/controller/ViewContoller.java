@@ -37,4 +37,9 @@ public class ViewContoller {
     public String getShowPage() {
         return "show";
     }
+
+    @GetMapping("/file")
+    public String getFileUploadPage() {
+        return "fileUpload";
+    }
 }
