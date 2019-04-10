@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+    <link rel="stylesheet" href="../static/css/fileUpload.css" type="text/css">
+</head>
+<body>
+<div id="fileUploadDiv">
+    <form method="POST" enctype="multipart/form-data" action="./files/upload">
+        <table>
+            <tr>
+                <td>上传文件：</td>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td>文件名称：</td>
+                <td><input type="text" name="fileName" placeholder="必填，且不重复"><br/></td>
+            </tr>
+            <tr>
+                <td>文件描述：</td>
+                <td><input type="text" name="fileDescription"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center"><input type="submit" value="Press"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

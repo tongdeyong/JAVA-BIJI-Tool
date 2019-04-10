@@ -1,0 +1,20 @@
+#fileUploadDiv{
+    border: 1px solid;
+    padding: 45px 0;
+    margin: 150px 420px;
+}
+table {
+    margin: auto;
+}
+
+input {
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    padding: 0 5px;
+    margin: 5px auto;
+}
+
+[type="submit"] {
+    height: 35px;
+}
